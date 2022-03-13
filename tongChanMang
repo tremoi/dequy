@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+void nhapMang(int &n, int  a[])
+{
+	for (int i = 0;i < n;i++)
+	{
+		cout << "a[" << i << "]=";
+		cin >> a[i];
+	}
+}
+void xuatMang(int n, int a[])
+{
+	for (int i = 0; i < n;i++)
+		cout << a[i] << "     ";
+}
+int tongChan(int n, int a[])
+{
+	if (n == 0)
+		return 0;
+	else {
+		if (a[n - 1] % 2 == 0)
+			return a[n - 1] + tongChan(n - 1, a);
+		return tongChan(n - 1, a);
+	}
+}
+int main()
+{
+	int a[100];
+	int n;
+	cout << "nhap n";
+	cin >> n;
+	nhapMang(n,a);
+	xuatMang(n,a);
+	cout << "tong chan trong mang" << tongChan(n, a);
+}
